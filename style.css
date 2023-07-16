@@ -1,0 +1,93 @@
+
+body{
+    background-image: url(https://ik.imagekit.io/awwybhhmo/satellite_images/pizza/beyondmenu/about_us/11.jpg);
+    background-size: cover;
+}
+
+.heading {
+    text-align: left;
+    display: flex;
+}
+.account {
+    text-align: center;
+    color: black;
+    margin: 0.5em;
+    border: 1px solid;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 15em;
+    border-radius: 0.25em;
+    display: inline-block;
+    background-color: white;
+    /* display: inline-block;
+    background-color: black; */
+    /* text-align: left; */
+    /* display: flex; */
+    /* display:inline; */
+}
+
+.pizza {
+    color: black;
+    margin: 0.5em;
+    border: 1px solid;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 15em;
+    border-radius: 0.25em;
+    display: inline-block;
+    background-color: aquamarine;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.white {
+    color: white;
+}
+
+.justwhite {
+    margin: 0.5em;
+    border: 1px solid;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 40em;
+    border-radius: 0.253m;
+    background-color: aquamarine;
+
+    /* color: white; */
+}
+
+.cart {
+    display: flex;
+    background-color: aliceblue;
+    /* color: white; */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 0.5px solid;
+    padding: 0.5em;
+}
+
+.button {
+    color: white;
+    background-color: red;
+}
+
+/* .message {
+
+} */
+
+.cart {
+    display: flex;
+}
+
+.cart div {
+    flex: 1;
+}

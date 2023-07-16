@@ -1,0 +1,41 @@
+# pizza API
+
+## To use use these HTTP endpoit install REST Client
+
+GET https://pizza-api.projectcodex.net/api/pizzas
+
+### Create a cart
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/create?username=Princemakhesha
+
+### Get a cart 
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/wcW6662KBf/get
+
+### Add a pizza to cart
+
+POST  https://pizza-api.projectcodex.net/api/pizza-cart/add
+Content-type: application/json
+
+{
+    "cart_code" : "wcW6662KBf",
+    "pizza_id" : 20
+}
+
+### removing from a cart
+POST https://pizza-api.projectcodex.net/api/pizza-cart/remove
+Content-type: application/json
+
+{
+    "cart_code" : "8wzyv04S8d",
+    "pizza_id" : 2
+}
+
+### Pay for a pizza from the cart
+POST https://pizza-api.projectcodex.net/api/pizza-cart/pay
+Content-type: application/json
+
+{
+    "cart_code" : "8wzyv04S8d",
+    "amount" : 500
+}
