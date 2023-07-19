@@ -59,6 +59,10 @@ body{
     /* color: white; */
 }
 
+.showcart {
+    float: right;
+}
+
 .cart {
     display: flex;
     background-color: aliceblue;

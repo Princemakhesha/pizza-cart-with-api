@@ -6,11 +6,12 @@ document.addEventListener("alpine:init", () => {
             slogan: 'Deliciously Crafted, Perfectly Savored: Your Slice of Pizza Perfection!',
             pizzas: [],
             username: 'princemakhesha',
-            cartId: '8wzyv04S8d',
+            cartId: '',
             cartPizzas: [],
             cartTotal: 0.00,
             paymentAmount: 0.00,
             message: '',
+            openCart: false,
             createCart() {
                 const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`
                 return axios.get(createCartURL).then(result => {
@@ -61,21 +62,22 @@ document.addEventListener("alpine:init", () => {
                 if (!this.cartId) {
                     this
                         .createCart()
-                        .then(() => {
+                        .then((result) => {
+                            this.cartId = result.data.cart_code;
                             this.showCartData();
                         })
                 }
-                this.showCartData();
+                // this.showCartData();
             },
             addPizzaToCart(pizzaId) {
                 // alert(pizzaId)
                 this.addPizza(pizzaId)
-                    .then(this.showCartData)
+                    .then(this.showCartData())
             },
             removePizzaFromCart(pizzaId) {
                 // alert(pizzaId)
                 this.removePizza(pizzaId)
-                    .then(this.showCartData)
+                    .then(this.showCartData())
 
             },
             payForCart() {
@@ -100,7 +102,7 @@ document.addEventListener("alpine:init", () => {
 
                             // console.log(result.data)
                         }
-                        
+
                     })
             }
 

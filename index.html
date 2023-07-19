@@ -34,15 +34,14 @@
                 <br>
                 Cart code: <span x-text="cartId"></span>
             </div>
-
-
+            <div class="showcart">
+                <button x-show="cartPizzas.length > 0" @click="openCart = !openCart"><img src="https://icon-library.com/images/cart-icon-png-white/cart-icon-png-white-11.jpg" width="30"> <br>Cart</button>
+            </div>
         </div>
-
         <div class="justwhite">
             <!-- i want this to be white -->
-
             <div class="Cart">
-                <div x-show="cartTotal > 0">              
+                <div x-show="openCart">
                     <h2>Your Cart</h2>
                     <div class="message" x-text="message">message here</div>
                     <table>
@@ -84,9 +83,9 @@
                 </div>
 
             </div>
-
-
+            
         </div>
+        
 
 
         <div class="pizzas">
