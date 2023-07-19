@@ -14,7 +14,7 @@
 
 <body x-data="pizzaCart">
 
-    <div class="container">
+    <div class="container" x-cloak>
         <div class="white">
             <div class="heading">
                 <img src="https://th.bing.com/th/id/R.3fc734f8fe51ea3d0cdba11a315ff966?rik=B7nfzOzxzQ3U%2fw&pid=ImgRaw&r=0"
@@ -30,17 +30,27 @@
             <div class="account">
                 <img src="https://www.pngkey.com/png/full/202-2024792_profile-icon-png.png" width="30">
                 <br>
-                Username: <span x-text="username"></span>
+                <div>
+                    Username: <input type="text" x-model="username">
+                    <button x-on:click="Login" x-show="!cartId">Login</button>
+                    <button x-on:click="Logout" x-show="username && cartId">Logout</button>
+                </div>
+                <div x-show="cartId">
+                    Cart code: <span x-text="cartId"></span>
+                </div>
+
                 <br>
-                Cart code: <span x-text="cartId"></span>
+
             </div>
             <div class="showcart">
-                <button x-show="cartPizzas.length > 0" @click="openCart = !openCart"><img src="https://icon-library.com/images/cart-icon-png-white/cart-icon-png-white-11.jpg" width="30"> <br>Cart</button>
+                <button x-show="cartPizzas.length > 0" @click="openCart = !openCart"><img
+                        src="https://icon-library.com/images/cart-icon-png-white/cart-icon-png-white-11.jpg" width="30">
+                    <br>Cart</button>
             </div>
         </div>
         <div class="justwhite">
             <!-- i want this to be white -->
-            <div class="Cart">
+            <div class="Cart" >
                 <div x-show="openCart">
                     <h2>Your Cart</h2>
                     <div class="message" x-text="message">message here</div>
@@ -83,12 +93,12 @@
                 </div>
 
             </div>
-            
+
         </div>
-        
 
 
-        <div class="pizzas">
+
+        <div class="pizzas" x-show="username && cartId">
             <h2 class="white">Pizzas</h2>
 
             <template x-for="pizza in pizzas">

@@ -15,7 +15,7 @@ body{
     border: 1px solid;
     margin-bottom: 1em;
     padding: 0.5em;
-    width: 15em;
+    width: 19em;
     border-radius: 0.25em;
     display: inline-block;
     background-color: white;
@@ -88,10 +88,12 @@ th, td {
 
 } */
 
-.cart {
+/* .cart {
     display: flex;
-}
+} */
 
 .cart div {
     flex: 1;
 }
+
+[x-cloak] { display: none !important; }
