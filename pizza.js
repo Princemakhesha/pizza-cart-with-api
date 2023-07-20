@@ -117,7 +117,7 @@ document.addEventListener("alpine:init", () => {
                     .then(result => {
                         // code here
                         //console.log(result.data);
-                        this.pizzas = result.data.pizzas //this is the line sbu
+                        this.pizzas = result.data.pizzas //this is the line
                         this.featuredPizzas = result.data.featuredPizzas
                         //code here...
                     });
