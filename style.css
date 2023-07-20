@@ -1,6 +1,7 @@
 
 body{
-    background-image: url(https://ik.imagekit.io/awwybhhmo/satellite_images/pizza/beyondmenu/about_us/11.jpg);
+    /* background-image: url(https://ik.imagekit.io/awwybhhmo/satellite_images/pizza/beyondmenu/about_us/11.jpg); */
+    background-image: url(11.webp);
     background-size: cover;
 }
 

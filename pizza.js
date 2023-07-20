@@ -12,6 +12,7 @@ document.addEventListener("alpine:init", () => {
             paymentAmount: 0.00,
             message: '',
             openCart: false,
+            featuredPizzas: [],
             Login() {
                 if (this.username.length > 2) {
                     localStorage['username'] = this.username;
@@ -20,6 +21,27 @@ document.addEventListener("alpine:init", () => {
                     alert("Username is too short")
                 }
             },
+
+            addPizzaToFeature(pizzaId) {
+                axios.post('https://pizza-api.projectcodex.net/api/pizzas/featured', {
+                    "username": this.username,
+                    "pizza_id": pizzaId
+                }).then(()=>{
+                    this.fetchFeatured();
+                })
+            },
+
+            fetchFeatured() {
+                console.log(this.username);
+                axios.get(`https://pizza-api.projectcodex.net/api/pizzas/featured?username=${this.username}`).then(featuredPizzas => {
+                /**
+                 * TODO
+                 * Set/assing the response of the featured api to the 'featuredPizzas' for the featured api pizzas to display on the screen.
+                 * */    
+                console.log(featuredPizzas);
+                })
+            },
+
             Logout() {
                 if (confirm('Do you want to logout?')) {
                     this.username = '';
@@ -48,6 +70,10 @@ document.addEventListener("alpine:init", () => {
                         });
                 }
             },
+            pizzaImage(pizza) {
+                return `/img/${pizza.size}.png`
+            },
+
             getCart() {
                 const getCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/${this.cartId}/get`
                 return axios.get(getCartURL)
@@ -81,6 +107,7 @@ document.addEventListener("alpine:init", () => {
 
             init() {
                 const storedUsername = localStorage['username'];
+                this.fetchFeatured();
                 if (storedUsername) {
                     this.username = storedUsername;
                 }
@@ -90,7 +117,8 @@ document.addEventListener("alpine:init", () => {
                     .then(result => {
                         // code here
                         //console.log(result.data);
-                        this.pizzas = result.data.pizzas
+                        this.pizzas = result.data.pizzas //this is the line sbu
+                        this.featuredPizzas = result.data.featuredPizzas
                         //code here...
                     });
 

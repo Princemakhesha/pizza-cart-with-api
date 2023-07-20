@@ -39,3 +39,13 @@ Content-type: application/json
     "cart_code" : "8wzyv04S8d",
     "amount" : 500
 }
+
+### featured pizzas
+
+POST https://pizza-api.projectcodex.net/api/pizzas/featured?username=princemakhesha
+Content-Type: application/json
+
+{
+    "username": "princemakhesha"
+    "pizza_id": 7
+}

@@ -50,7 +50,7 @@
         </div>
         <div class="justwhite">
             <!-- i want this to be white -->
-            <div class="Cart" >
+            <div class="Cart">
                 <div x-show="openCart">
                     <h2>Your Cart</h2>
                     <div class="message" x-text="message">message here</div>
@@ -65,6 +65,7 @@
 
                         <template x-for="pizza in cartPizzas">
                             <tr>
+
                                 <td x-text="pizza.flavour"></td>
                                 <td x-text="pizza.size"></td>
                                 <td x-text="pizza.price"></td>
@@ -96,26 +97,94 @@
 
         </div>
 
-
-
-        <div class="pizzas" x-show="username && cartId">
-            <h2 class="white">Pizzas</h2>
-
-            <template x-for="pizza in pizzas">
-                <div class="pizza">
-
-                    <h5 x-text="pizza.flavour"></h5>
-                    <!-- <span x-text="pizza.id"></span> -->
-                    <span x-text="pizza.size"></span> @
-                    <strong>
-                        R<span x-text="pizza.price"></span>
-                        <strong>
-                            <div>
-                                <button class="button" x-on:click="addPizzaToCart(pizza.id)">Add to cart</button>
-                            </div>
-                </div>
-            </template>
+        <div class="white">
+            <h2>Featured Pizzas</h2>
+            <div class="pizza small_pizza">
+        <h2>Small Pizza</h2>
+        <img src="pizza-png-from-pngfre-16.png" width="100">
+        <h3>R49.00</h3>
+        <div>
+          Small in size, big in flavor - the small pizza!
         </div>
+        <br>
+
+        <div>
+          <button class="button"  type="button" name="add" @click="addToCart('Small Pizza', smallPrice)" class="">Buy</button>
+        </div>
+      </div>
+
+      <div class="pizza medium_pizza">
+        <h2>Medium Pizza</h2>
+        <img src="pizza-png-from-pngfre-16.png" width="125">
+        <h3>R89.00</h3>
+        <div>
+          Perfectly sized, perfectly delicious - the medium pizza!
+        </div>
+
+        <br>
+
+        <div>
+          <button class="button" type="button" name="add" @click="addToCart('Medium Pizza', mediumPrice)" class="">Buy</button>
+        </div>
+      </div>
+
+      <div class="pizza large_pizza">
+        <h2>Large Pizza</h2>
+        <img src="pizza-png-from-pngfre-16.png" width="150">
+        <h3>R129.00</h3>
+        <div>
+          Share the love, share the flavor - the large pizza!
+        </div>
+        <br>
+
+        <div>
+          <button class="button"  type="button" name="add" @click="addToCart('Large Pizza', largePrice)" class="">Buy</button>
+        </div>
+      </div>
+    </div>
+
+            <!-- <template x-for="pizza in featuredPizzas">
+                <div class="pizza large_pizza">
+                    <h2 x-text="pizza.size">Large Pizza</h2>
+                    <img src="pizza-png-from-pngfre-16.png" width="150">
+                    <h3>R129.00</h3>
+                    <div>
+                        Share the love, share the flavor - the large pizza!
+                    </div>
+                    <br>
+
+                    <div>
+                        <button x-on:click="addPizzaToFeature(pizza.id)" class="button">Buy</button>
+                    </div>
+                </div>
+            </template> -->
+
+
+        </div>
+
+    </div>
+
+
+    <div class="pizzas" x-show="username && cartId">
+        <!-- <h2 class="white">Pizzas</h2> -->
+        <h1 class="white">Pizzas</h1>
+
+        <template x-for="pizza in pizzas">
+            <div class="pizza">
+                <img class="right" x-bind:src="pizzaImage(pizza)" width="100">
+                <h5 x-text="pizza.flavour"></h5>
+                <!-- <span x-text="pizza.id"></span> -->
+                <span x-text="pizza.size"></span> @
+                <strong>
+                    R<span x-text="pizza.price"></span>
+                    <strong>
+                        <div>
+                            <!-- <button x-on:click="addPizzaToFeature(pizza.id)"> add feature</button> -->
+                            <button class="button" x-on:click="addPizzaToCart(pizza.id)">Buy</button>
+                        </div>
+            </div>
+        </template>
+    </div>
     </div>
 
 
