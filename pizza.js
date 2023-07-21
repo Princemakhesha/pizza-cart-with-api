@@ -71,7 +71,7 @@ document.addEventListener("alpine:init", () => {
                 }
             },
             pizzaImage(pizza) {
-                return `/img/${pizza.size}.png`
+                return `/public/img/${pizza.size}.png`
             },
 
             getCart() {
